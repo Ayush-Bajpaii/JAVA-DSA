@@ -42,18 +42,23 @@ public class linkedListInAtINd {
                 return;
             }
 
-            if (idx == size()){
+           else if (idx == size()){
                 insertAtEnd(val);
                 return;
+            }else if (idx < 0  || idx > size()){
+                System.out.printf(idx +" is wrong index. Size of LL is " + size() +"." +"\n");
+                return;
             }
-
-            Node t = new Node(val);
-            Node temp = head;
-            for(int i = 1;i<=idx-1;i++){
-                temp = temp.next;
-            }
+                Node t = new Node(val);
+                Node temp = head;
+                for(int i = 1;i<=idx-1;i++){
+                    temp = temp.next;
+                }
                 t.next = temp.next;
                 temp.next = t;
+
+
+
         }
 
         void display(){
@@ -92,12 +97,16 @@ public class linkedListInAtINd {
         ll.insertAtHead(-2);
         // ll.display();
         ll.insertAtHead(-3);
-        ll.display();
+      //  ll.display();
       //  System.out.println(ll.size());
-        ll.insertAt(5,2);
+        ll.insertAt(-1,2);
+        ll.insertAt(0,5);
+        ll.insertAt(9,9);
         ll.display();
         System.out.println(ll.size());
         System.out.println(ll.tail.data);
+        System.out.println(ll.head.data);
+
 
     }
 }
