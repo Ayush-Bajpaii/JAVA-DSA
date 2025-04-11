@@ -1,3 +1,5 @@
+package LINKEDLIST;
+
 public class linkedListInAtHd {
 
     public static class Node{
