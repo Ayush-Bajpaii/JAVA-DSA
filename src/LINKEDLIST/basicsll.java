@@ -2,6 +2,15 @@ package LINKEDLIST;
 
 public class basicsll {
 
+    public static void insertAtEnd(Node head, int val){
+        Node temp = new Node(val);
+        Node t = head;
+        while(t.next!= null){
+            t= t.next;
+        }
+        t.next = temp;
+    }
+
     public static void display (Node head){
      Node temp = head;
      while(head != null ){
@@ -43,6 +52,10 @@ public class basicsll {
 //            temp = temp.next;
 //        }
         display(a);
+        System.out.println();
+        insertAtEnd(a,87);
+        display(a);
+
 
 
     }

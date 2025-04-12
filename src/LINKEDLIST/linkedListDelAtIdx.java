@@ -1,6 +1,6 @@
 package LINKEDLIST;
 
-public class linkedListGetAt {
+public class linkedListDelAtIdx {
 
     public static class Node{
         int data;
@@ -14,17 +14,6 @@ public class linkedListGetAt {
         Node head;
         Node tail;
         int size;
-
-
-//        int size(){
-//            Node temp = head;
-//            int count = 0;
-//            while(temp != null){
-//                count++;
-//                temp = temp.next;
-//            }
-//            return count;
-//        }
 
         void display(){
             Node temp = head;
@@ -54,10 +43,10 @@ public class linkedListGetAt {
                 insertAtEnd(val);
                 return;
             }
-                Node temp = new Node(val);
-                temp.next = head;
-                head = temp;
-                size++;
+            Node temp = new Node(val);
+            temp.next = head;
+            head = temp;
+            size++;
 
         }
 
@@ -98,6 +87,23 @@ public class linkedListGetAt {
             return temp.data;
         }
 
+        void deleteAt(int idx){
+            if(idx == 0){
+                head = head.next;
+                size--;
+                return;
+            }
+         Node temp = head;
+         for(int i = 1; i <= idx-1; i++){
+             temp = temp.next;
+         }
+         temp.next = temp.next.next;
+         if(temp.next == null) {
+             tail = temp;
+         }
+         size--;
+        }
+
     }
 
 
@@ -105,21 +111,20 @@ public class linkedListGetAt {
     public static void main(String[] args) {
         linkedList ll = new linkedList();
         ll.insertAtHead(0);
-        ll.display();
         ll.insertAtEnd(1);
-        ll.display();
         ll.insertAt(0,-1);
-        ll.display();
-        System.out.println(ll.tail.data);
-        System.out.println(ll.head.data);
-        ll.insertAt(5,4);
-        ll.display();
-        ll.insertAt(-1,-2);
-        ll.display();
-        System.out.println(ll.getAt(0));
         ll.insertAt(2,3);
+        ll.insertAt(4,2);
+        ll.insertAt(5,5);
         ll.display();
-        System.out.println(ll.size);
+        ll.deleteAt(0);
+        ll.deleteAt(4);
+        ll.deleteAt(2);
+
+        ll.display();
+        System.out.println(ll.head.data);
+        System.out.println(ll.tail.data);
+
 
     }
 }
