@@ -1,40 +1,54 @@
 package DoublyLinkedList;
 
-public class insertAtHead {
-    public static class Node{
+public class insertAtTailindDll {
+    public static class Node {
         int val;
         Node next;
         Node prev;
-        Node(int val){
+
+        Node(int val) {
             this.val = val;
         }
     }
 
-    public static Node insertAtHd(Node head, int x){
-        Node t = new Node(x);
+    public static Node insertAtHD(Node head, int x){
+        Node t= new Node(x);
         t.next = head;
         head.prev = t;
         head = t;
         return head;
     }
 
+    public static void insertAtTail(Node head, int x){
+        Node temp = head;
+        while(temp.next != null){
+            temp = temp.next;
+
+        }
+        Node t = new Node(x);
+        temp.next = t;
+        t.prev = temp;
+
+
+
+    }
+
+
+
     public static void display(Node random){
         Node temp = random;
         while(temp.prev != null){
             temp = temp.prev;
         }
-        while(temp !=null){
+        while(temp != null){
             System.out.print(temp.val+ " ");
             temp = temp.next;
         }
         System.out.println();
     }
 
-
-
-
     public static void main(String[] args) {
-       Node a = new Node(4);
+        Node a = new Node(4);
         Node b = new Node(10);
         Node c = new Node(2);
         Node d = new Node(99);
@@ -50,7 +64,13 @@ public class insertAtHead {
         e.prev = d;
         e.next = null;
         display(a);
-        Node newHead = insertAtHd(a,35);
+        Node newHead = insertAtHD(a, 35);
         display(newHead);
+        insertAtTail(b,90);
+        display(a);
+
+
+
+
     }
 }
