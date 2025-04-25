@@ -124,7 +124,6 @@ public class linkedListDelAtIdx {
         ll.display();
         System.out.println(ll.head.data);
         System.out.println(ll.tail.data);
-
-
+        System.out.println(ll.getAt(2));
     }
 }
