@@ -74,6 +74,38 @@ public class insertAtIndx {
         return head;
     }
 
+    public static Node deleteAtInd(Node head, int idx) {
+        if (head == null) return null;
+
+        if (idx == 0) {
+            Node newHead = head.next;
+            if (newHead != null) {
+                newHead.prev = null;
+            }
+            head = newHead;
+            return head;
+        }
+
+        Node curr = head;
+        for (int i = 0; i < idx; i++) {
+            curr = curr.next;
+            if (curr == null) return head; // index out of bounds
+        }
+
+        Node prevNode = curr.prev;
+        Node nextNode = curr.next;
+
+        if (prevNode != null) {
+            prevNode.next = nextNode;
+        }
+        if (nextNode != null) {
+            nextNode.prev = prevNode;
+        }
+
+        return head;
+    }
+
+
 
 
     public static void main(String[] args) {
@@ -92,13 +124,35 @@ public class insertAtIndx {
         d.next = e;
         e.prev = d;
         e.next = null;
-        display(a);
-        insertAtInd(a,3,56);
-        display(a);
-        insertAtInd(a,0,0);
-        display(a);
-        insertAtInd(a,6,14);
-        display(a);
 
+        Node head = a;
+
+        System.out.print("Initial list: ");
+        display(head);
+
+        head = insertAtInd(head, 3, 56);  // Insert 56 at index 3
+        System.out.print("After inserting 56 at index 3: ");
+        display(head);
+
+        head = insertAtInd(head, 0, 0);   // Insert 0 at head
+        System.out.print("After inserting 0 at index 0: ");
+        display(head);
+
+        head = insertAtInd(head, 6, 14);  // Insert 14 at index 6 (tail position)
+        System.out.print("After inserting 14 at index 6: ");
+        display(head);
+
+        head = deleteAtInd(head, 0);      // Delete head
+        System.out.print("After deleting index 0: ");
+        display(head);
+
+        head = deleteAtInd(head, 2);      // Delete node at index 2
+        System.out.print("After deleting index 2: ");
+        display(head);
+
+        head = deleteAtInd(head, 10);     // Attempt to delete out-of-bounds
+        System.out.print("After attempting to delete out-of-bounds index 10: ");
+        display(head);
     }
+
 }
