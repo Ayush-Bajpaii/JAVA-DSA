@@ -13,6 +13,17 @@ public class displayRecursively {
     }
 
 
+    public static void displayRec(Stack<Integer> st){
+        if(st.size() == 0) return;
+        int top = st.pop();
+        displayRec(st);
+        System.out.print(top+ " ");
+        st.push(top);
+    }
+
+
+
+
     public static void main(String[] args) {
         Stack<Integer> st = new Stack<>();
         st.push(1);
@@ -22,6 +33,9 @@ public class displayRecursively {
         st.push(5);
 
         displayRevRec(st);
+        System.out.println();
+        displayRec(st);
+
 
 
     }
