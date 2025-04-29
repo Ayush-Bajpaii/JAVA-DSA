@@ -85,5 +85,6 @@ public class LLimpOfStack {
         st.push(9);
         st.push(3);
         st.display();
+
     }
 }
