@@ -65,8 +65,8 @@ import java.util.Stack;
         System.out.println("\nTest case 4: heights = [2, 2, 2, 2]");
         System.out.println("Largest Rectangle Area: " + solution.largestRectangleArea(heights4));
 
-        int[] heights5 = {2, 8, 6, 7, 9, 10};
-        System.out.println("\nTest case 5: heights = [2, 8, 6, 7, 9, 10]");
+        int[] heights5 = {18, 18, 18, 18, 18, 18};
+        System.out.println("\nTest case 5: heights = [2, 18, 6, 16, 18, 10]");
         System.out.println("Largest Rectangle Area: " + solution.largestRectangleArea(heights5));
 
 
