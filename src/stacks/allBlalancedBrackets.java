@@ -62,6 +62,7 @@ import java.util.*;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the symbols : ");
         String str = sc.nextLine();
         System.out.println(isBalanced(str));
     }
